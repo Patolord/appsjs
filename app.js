@@ -15,6 +15,8 @@ function addTask(e){
     alert('Add a task');
   }
   
+
+  //create li
   const li = document.createElement('li');
   li.className = 'collection-item';
   li.appendChild(document.createTextNode(taskInput.value));
