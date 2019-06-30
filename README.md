@@ -2,7 +2,7 @@
 
 Small js apps for study.
 
-App1 = Task List
+App1 = Task List.
 
 App2 = Loan Calc.
 
