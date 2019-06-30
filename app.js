@@ -7,6 +7,9 @@ const taskInput = document.querySelector("#task");
 loadEventListeners();
 
 function loadEventListeners() {
+  //DOM load eventt
+  document.addEventListener("DOMContentLoaded", getTasks);
+
   form.addEventListener("submit", addTask);
 
   taskList.addEventListener("click", removeTask);
@@ -33,17 +36,41 @@ function clearTasks(e) {
     while (taskList.firstChild) {
       taskList.removeChild(taskList.firstChild);
     }
+    clearTasksFromLocalStorage();
   }
+
+  
+}
+
+function clearTasksFromLocalStorage(){
+  localStorage.clear();
 }
 
 function removeTask(e) {
   if (e.target.parentElement.classList.contains("delete-item")) {
     if (confirm("Areya sure?")) {
       e.target.parentElement.parentElement.remove();
-    }
 
-    console.log(e.target);
+      removeTasksFromLocalStorage(e.target.parentElement.parentElement);
+    }
   }
+}
+
+function removeTasksFromLocalStorage(taskItem) {
+  let tasks;
+  if (localStorage.getItem("tasks") == null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+
+  tasks.forEach(function(task, index) {
+    if (taskItem.textContent === task) {
+      tasks.splice(index, 1);
+    }
+  });
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 function addTask(e) {
@@ -80,7 +107,52 @@ function addTask(e) {
   //coloca o li no elemento tasklist.
   taskList.appendChild(li);
 
+  //store in local storage
+  StoreTaskInLocalStorage(taskInput.value);
+
   taskInput.value = "";
 
   e.preventDefault();
+}
+
+function StoreTaskInLocalStorage(task) {
+  let tasks;
+  if (localStorage.getItem("tasks") == null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+  tasks.push(task);
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function getTasks(e) {
+  let tasks;
+  if (localStorage.getItem("tasks") == null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+
+  tasks.forEach(function(task) {
+    //cria o elemento li
+    const li = document.createElement("li");
+    //atribui a classe
+    li.className = "collection-item";
+    //cria o valor do texto com base no valor de entrada e coloca no elemento li
+    li.appendChild(document.createTextNode(task));
+
+    // cria o elemento a
+    const link = document.createElement("a");
+    // atribui a classe deletar
+    link.className = "delete-item secondary-content";
+    //atribui o html abaixo
+    link.innerHTML = '<i class="fa fa-remove"></i>';
+    //coloca o elemento link no li
+    li.appendChild(link);
+
+    //coloca o li no elemento tasklist.
+    taskList.appendChild(li);
+  });
 }
