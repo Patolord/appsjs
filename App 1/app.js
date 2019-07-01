@@ -46,11 +46,8 @@ function clearTasksFromLocalStorage() {
 
 function removeTask(e) {
   if (e.target.parentElement.classList.contains("delete-item")) {
-    if (confirm("Areya sure?")) {
-      e.target.parentElement.parentElement.remove();
-
-      removeTasksFromLocalStorage(e.target.parentElement.parentElement);
-    }
+    e.target.parentElement.parentElement.remove();
+    removeTasksFromLocalStorage(e.target.parentElement.parentElement);
   }
 }
 
