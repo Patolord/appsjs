@@ -9,8 +9,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <title>Hello, world!</title>
+    <title>Hello, world!</title>
 </head>
 
 <body class="bg-dark">
@@ -18,7 +17,7 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="card card-body text-center mt-5">
-          <h1 class="heading display-5 pb-3">Calculadora Térmica</h1>
+          <h1 class="heading display-5 pb-3">Carga Térmica</h1>
           <form id="term-form">
             <div class="form-group">
               <div class="input-group">
@@ -28,24 +27,26 @@
               </div>
             </div>
             <div class="form-group">
-              
-              <label for="formControlRange" id="demo">##</label>
-              <input type="range" class="form-control-range" min="10" max="25" value="20" id="formControlRange">              
-            </div>            
-            
+
+               <label for="formControlRange" id="demo"></label>
+              <input type="range" class="form-control-range" min="10" max="25" value="20" id="formControlRange">
+
+
+            </div>
+
           </form>
-          <!-- loader here  -->
+          
           <!--<div id="loading"><img src="img/loading.gif" alt=""></div>-->
-          <!-- results -->
+          
           <div id="results" class="pt-4">
             <h5> Resultado</h5>
             <div class="form-group">
               <div class="input-group">
 
-                <input type="number" class="form-control" id="result" disabled>
+                <input type="number" class="form-control float-sm-right" id="result" disabled>
                 <span class="input-group-text">BTU/h</span>
               </div>
-            </div>            
+            </div>
           </div>
 
 
