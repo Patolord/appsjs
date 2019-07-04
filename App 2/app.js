@@ -1,5 +1,6 @@
 document  .getElementById("term-form").addEventListener("submit", calculateResults);
 
+
 function calculateResults(e) {
   const amount = document.getElementById("amount");
   const nodeList = document.querySelectorAll("td");
@@ -21,7 +22,34 @@ function calculateResults(e) {
   const resultadoTabela = document.getElementById("fac2");
   fatorTabela.innerHTML = factor.value;
   resultadoTabela.innerHTML = Math.ceil((amount.value * 12000) / (factor.value));
-  
 }
 }
 
+
+function showError(error,times){
+
+time = times;
+
+if(time >0)
+{
+const card = document.querySelector('.card');
+const heading = document.querySelector('.heading');
+
+
+  const errorDiv = document.createElement('div');
+
+  errorDiv.className = 'alert alert-danger';
+
+  errorDiv.appendChild(document.createTextNode(error));
+
+  card.insertBefore(errorDiv, heading);
+
+  setTimeout(clearError, 3000);
+  time = time - 1;
+}
+}
+
+function clearError(){
+  document.querySelector('.alert ').remove();
+  time = time + 1;
+}
