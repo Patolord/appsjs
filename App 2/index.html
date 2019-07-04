@@ -1,61 +1,132 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Hello, world!</title>
-</head>
+
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+  <title>Hello, world!</title>
+  <style>
+    .table {
+      display: none;
+    }
+
+    #inputfactor {
+      display: none;
+    }
+
+    .h1,
+    h1 {
+      font-size: 2.0rem;
+    }
+  </style>
+
 
 <body class="bg-dark">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 mx-auto">
+      <div class="col-md-4 mx-auto">
         <div class="card card-body text-center mt-5">
-          <h1 class="heading display-5 pb-3">Carga Térmica</h1>
+
+          <h1 class="heading display-5 pb-4">Calculadora Térmica</h1>
+
           <form id="term-form">
             <div class="form-group">
               <div class="input-group">
-
-                <input type="number" class="form-control" id="amount" placeholder="Metros quadrados">
+                <input type="number" class="form-control" id="amount" placeholder="Metros quadrados" />
                 <span class="input-group-text">m²</span>
               </div>
             </div>
             <div class="form-group">
 
-               <label for="formControlRange" id="demo"></label>
-              <input type="range" class="form-control-range" min="10" max="25" value="20" id="formControlRange">
-
-
+              <input type="submit" value="Calcular" class="btn btn-dark btn-block">
             </div>
 
-          </form>
-          
-          <!--<div id="loading"><img src="img/loading.gif" alt=""></div>-->
-          
-          <div id="results" class="pt-4">
-            <h5> Resultado</h5>
             <div class="form-group">
-              <div class="input-group">
-
-                <input type="number" class="form-control float-sm-right" id="result" disabled>
-                <span class="input-group-text">BTU/h</span>
-              </div>
+              <table class="table table-striped table-bordered table-hover table-sm" id="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Fator</th>
+                    <th scope="col">BTU/h</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">15</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">16</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">17</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">18</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">19</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">20</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">21</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">22</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">23</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">24</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">25</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" id=fac>#</th>
+                    <td id=fac2></td>
+                  </tr>
             </div>
-          </div>
 
 
-
+            </td>
+            </tr>
+            </tbody>
+            </table>
         </div>
+        </form>
+
+
+        <div class="form-group" id="inputfactor">
+          <div class="input-group">
+            <input type="number" class="form-control" id="factor" placeholder="Outro fator" />
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>
-
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

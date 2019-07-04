@@ -1,24 +1,30 @@
-const slider = document.getElementById("formControlRange");
-const output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
-let time = 1;
+document  .getElementById("term-form").addEventListener("submit", calculateResults);
 
-slider.oninput = function() {
-  output.innerHTML = this.value;
+
+function calculateResults(e) {
   const amount = document.getElementById("amount");
-  const slider = document.getElementById("formControlRange");
-  const resultado = document.getElementById("result");
-  
-  if(amount.value > 0)
-  resultado.value = Math.ceil(parseFloat(amount.value) * 12000 / slider.value);
-  else
-  {
-    showError('Por favor, verifique o valor de entrada',time);
+  const nodeList = document.querySelectorAll("td");
+  console.log(nodeList);
 
+  for (i = 0; i < 11; i++) {
+    nodeList[i].innerHTML = Math.ceil((amount.value * 12000) / (15 + i));    
   }
+  e.preventDefault();
 
+  document.getElementById('table').style.display = 'table';
+  document.getElementById('inputfactor').style.display = 'block';
+  const factor = document.getElementById("factor");
 
-};
+  if(factor.value > 0)
+  {
+  console.log(factor.value);
+  const fatorTabela = document.getElementById("fac");
+  const resultadoTabela = document.getElementById("fac2");
+  fatorTabela.innerHTML = factor.value;
+  resultadoTabela.innerHTML = Math.ceil((amount.value * 12000) / (factor.value));
+}
+}
+
 
 function showError(error,times){
 
