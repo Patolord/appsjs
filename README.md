@@ -2,8 +2,10 @@
 
 Small js apps for study.
 
+Main App. Sorteio
+
 App1 = Task List.
 
-App2 = Loan Calc.
+App2 = Thermal Calc.
 
-App3 = Number Guesser.
+
